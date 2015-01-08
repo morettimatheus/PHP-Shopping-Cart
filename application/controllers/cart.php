@@ -12,7 +12,7 @@ class Cart extends CI_Controller {
 	}
 	public function addProductToCart() {
 		$product = $this->input->post('productNo');
-		$_SESSION['cart'][$product]["id"] = $product;
+		$_SESSION['cart'][$product]["id"] = $product - 1;
 		$_SESSION['cart'][$product]["qty"] = $_SESSION['cart'][$product]["qty"] + 1;
 
 	}

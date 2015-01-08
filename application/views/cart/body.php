@@ -3,10 +3,11 @@
 <?php 
 $prods = array();
 $i = 0;
+$products = $products->result_array();
 foreach ($_SESSION['cart'] as $item) {
   if (isset($item)) {
     $prods[$item["id"]] = $products[$item["id"]];
-    $prods[$item["id"]]->qtyOnCart = $item["qty"];
+    $prods[$item["id"]]['qtyOnCart'] = $item["qty"];
     $i++;
   }
 }
@@ -25,27 +26,27 @@ if ($i > 0) { ?>
 <?php }
 $total = 0;
 foreach ($prods as $key => $value) { 
-  $total += number_format(($value->price * $value->qtyOnCart), 2);
+  $total += number_format(($value['price'] * $value['qtyOnCart']), 2);
   ?> 
   <?php echo '
   <tr>
     <td data-th="Product">
       <div class="row">
-        <div class="col-sm-2 hidden-xs"><img src="'. $value->imagepath.'" alt="..." class="img-responsive"/></div>
+        <div class="col-sm-2 hidden-xs"><img src="'. $value['imagepath'].'" alt="..." class="img-responsive"/></div>
         <div class="col-sm-10">
-          <h4 class="nomargin">'.$value->name.'</h4>
-          <p>'.$value->description.'</p>
+          <h4 class="nomargin">'.$value['name'].'</h4>
+          <p>'.$value['description'].'</p>
         </div>
       </div>
     </td>
-    <td data-th="Price">£' . number_format($value->price, 2) .'</td>
+    <td data-th="Price">£' . number_format($value['price'], 2) .'</td>
     <td data-th="Quantity" class="text-center">
-    <input id="qty'.$value->productNo.'" type="number" class="form-control text-center" min="1" value="'. $value->qtyOnCart.'">
+    <input id="qty'.$value['productNo'].'" type="number" class="form-control text-center" min="1" value="'. $value['qtyOnCart'].'">
     </td>
-    <td data-th="Subtotal" class="text-center">£' . number_format(($value->price * $value->qtyOnCart), 2) .'</td>
+    <td data-th="Subtotal" class="text-center">£' . number_format(($value['price'] * $value['qtyOnCart']), 2) .'</td>
     <td class="actions" data-th="">
-      <button class="btn btn-info btn-sm btn-refresh" value="'. $value->productNo.'"><i class="fa fa-refresh"></i></button>
-      <button class="btn btn-danger btn-sm btn-remove" value="'. $value->productNo.'"><i class="fa fa-trash-o"></i></button>                
+      <button class="btn btn-info btn-sm btn-refresh" value="'. $value['productNo'].'"><i class="fa fa-refresh"></i></button>
+      <button class="btn btn-danger btn-sm btn-remove" value="'. $value['productNo'].'"><i class="fa fa-trash-o"></i></button>                
     </td>
   </tr>'?> <?php }?>
   <?php if ($i > 0) { ?>

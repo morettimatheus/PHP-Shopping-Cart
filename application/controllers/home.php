@@ -7,7 +7,6 @@ class Home extends CI_Controller {
 
 	public function index() {
 		$this->load->model('Products');
-		$this->Products->createProducts();
 		$data['products'] = $this->Products->getProducts();
 		$this->load->view('home/header');
 		$this->load->view('home/body', $data);

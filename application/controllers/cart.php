@@ -4,7 +4,6 @@ class Cart extends CI_Controller {
 
 	public function index() {
 		$this->load->model('Products');
-		$this->Products->createProducts();
 		$data['products'] = $this->Products->getProducts();
 		$this->load->view('cart/header');
 		$this->load->view('cart/body', $data);

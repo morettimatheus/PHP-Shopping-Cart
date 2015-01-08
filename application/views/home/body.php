@@ -1,7 +1,7 @@
 <body>
 <div class="container">
 
-    <?php foreach ($products as $k => $value) { ?> 
+    <?php foreach ($products->result() as $value) { ?> 
         <?php echo '<div class="col-md-2 column productbox">
             <img src=" ' . $value->imagepath .'" class="img-responsive">
             <div class="producttitle">' . $value->name . '</div>

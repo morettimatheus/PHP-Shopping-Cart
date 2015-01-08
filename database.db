@@ -1,0 +1,46 @@
+-- phpMyAdmin SQL Dump
+-- version 4.1.12
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost:8889
+-- Generation Time: 08-Jan-2015 às 07:36
+-- Versão do servidor: 5.5.34
+-- PHP Version: 5.3.28
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- Database: `ShoppingCart`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `Products`
+--
+
+CREATE TABLE `Products` (
+  `productNo` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `price` float NOT NULL,
+  `description` text NOT NULL,
+  `imagepath` text NOT NULL,
+  PRIMARY KEY (`productNo`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+
+--
+-- Extraindo dados da tabela `Products`
+--
+
+INSERT INTO `Products` (`productNo`, `name`, `price`, `description`, `imagepath`) VALUES
+(1, 'Product 1', 59.9, 'Sample description of product 1 on database', 'public/images/products/1.png'),
+(2, 'Product 2', 99.9, 'Sample description of product 2 on database', 'public/images/products/2.png'),
+(3, 'Product 3', 99.9, 'Sample description of product 3 on database', 'public/images/products/3.png'),
+(4, 'Product 4', 129.9, 'Sample description of product 4 on database', 'public/images/products/4.png'),
+(5, 'Product 5', 159.9, 'Sample description of product 5 on database', 'public/images/products/5.png'),
+(6, 'Product 6', 19.9, 'Sample description of product 6 on database', 'public/images/products/6.png'),
+(7, 'Product 7', 29.9, 'Sample description of product 7 on database', 'public/images/products/7.png'),
+(8, 'Product 8', 39.9, 'Sample description of product 8 on database', 'public/images/products/8.png'),
+(9, 'Product 9', 49.9, 'Sample description of product 9 on database', 'public/images/products/9.png'),
+(10, 'Product 10', 79.9, 'Sample description of product 10 on database', 'public/images/products/10.png');
